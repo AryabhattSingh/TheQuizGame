@@ -14,15 +14,15 @@ class QuizBrain:
                 valid_user_input = True
             else:
                 print("\nKindly enter a valid entry.\n")
-        self.check_answer(user_answer, question)
+        self.check_answer(user_answer, question.answer)
 
-    def check_answer(self, user_answer, question):
-        if user_answer == question.answer or user_answer == question.answer[0]:
+    def check_answer(self, user_answer, correct_answer):
+        if user_answer == correct_answer or user_answer == correct_answer[0]:
             self.score += 1
             print("\nYou got it.")
         else:
             print("\nWrong answer.")
-        print(f"The correct answer was: {question.answer}\nCurrent Score: "
+        print(f"The correct answer was: {correct_answer}\nCurrent Score: "
               f"{self.score}/{self.question_number}\n")
 
     def still_has_questions(self):
