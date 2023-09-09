@@ -10,3 +10,5 @@ for item in question_data:
 quiz = QuizBrain(question_bank)
 while quiz.still_has_questions():
     quiz.next_question()
+
+print(f"\n{'-' * 30}\nYou have completed the quiz.\nFinal Score : {quiz.score}/{quiz.question_number}\n{'-' * 30}")
