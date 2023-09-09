@@ -5,6 +5,8 @@ class QuizBrain:
         self.question_list = question_bank
 
     def next_question(self):
+        """Displays question and Prompts the user to enter an answer. Internally calls check_answer() to check the
+        answer and update the score accordingly."""
         question = self.question_list[self.question_number]
         self.question_number += 1
         valid_user_input = False
@@ -17,6 +19,8 @@ class QuizBrain:
         self.check_answer(user_answer, question.answer)
 
     def check_answer(self, user_answer, correct_answer):
+        """Takes two string arguments - user answer and correct answer. Updates score and print messages accordingly to
+        answer."""
         if user_answer == correct_answer or user_answer == correct_answer[0]:
             self.score += 1
             print("\nYou got it.")
@@ -26,4 +30,5 @@ class QuizBrain:
               f"{self.score}/{self.question_number}\n")
 
     def still_has_questions(self):
+        """Returns a boolean after checking if the quiz still has questions left to ask user."""
         return self.question_number < len(self.question_list)
